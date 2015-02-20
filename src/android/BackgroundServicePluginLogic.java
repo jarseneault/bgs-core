@@ -598,12 +598,7 @@ public class BackgroundServicePluginLogic {
 			Log.d(LOCALTAG, "Starting bindToService");
 			
 			try {
-				String packageName = "com.ldrinteractive.audiostreamer";
-				String className = "AudioStreamer";
-				ComponentName component = new ComponentName(packageName, className);
-				Intent implicitIntent = new Intent(this.mServiceName);
-				this.mService = new Intent(implicitIntent);
-				this.mService.setComponent(component);
+				this.mService = new Intent(this.mContext, com.ldrinteractive.audiostreamer.AudioStreamer.class);
 
 				Log.d(LOCALTAG, "Attempting to start service");
 				this.mContext.startService(this.mService);
